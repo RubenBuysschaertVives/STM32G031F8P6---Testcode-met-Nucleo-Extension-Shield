@@ -31,29 +31,29 @@ void SetOnBoardLed(bool state)
 		GPIOB->ODR = GPIOB->ODR & ~GPIO_ODR_OD7;	// uitschakelen
 }
 
-// Functie om de data van één byte op de 4 LED's van het Nucleo Extension Shield te plaatsen
+// Functie om de data van één byte op de 4 LED's van het Nucleo Extension Shield te plaatsen.
 void ByteToLeds(unsigned char data)
 {
-	// Enkel de 4 LSB overhouden.
+	// Enkel de 4 LSbits overhouden.
 	data = data & 0x0F;
 	
 	if(data & 0x01)
-		GPIOA->ODR = GPIOA->ODR | GPIO_ODR_OD5;		// inschakelen
+		GPIOA->ODR = GPIOA->ODR | GPIO_ODR_OD5;			// inschakelen
 	else
-		GPIOA->ODR = GPIOA->ODR & ~GPIO_ODR_OD5;	// uitschakelen
+		GPIOA->ODR = GPIOA->ODR & ~GPIO_ODR_OD5;		// uitschakelen
 
 	if(data & 0x02)
-		GPIOA->ODR = GPIOA->ODR | GPIO_ODR_OD6;		// inschakelen
+		GPIOA->ODR = GPIOA->ODR | GPIO_ODR_OD6;			// inschakelen
 	else
-		GPIOA->ODR = GPIOA->ODR & ~GPIO_ODR_OD6;	// uitschakelen
+		GPIOA->ODR = GPIOA->ODR & ~GPIO_ODR_OD6;		// uitschakelen
 
 	if(data & 0x04)
-		GPIOA->ODR = GPIOA->ODR | GPIO_ODR_OD7;		// inschakelen
+		GPIOA->ODR = GPIOA->ODR | GPIO_ODR_OD7;			// inschakelen
 	else
-		GPIOA->ODR = GPIOA->ODR & ~GPIO_ODR_OD7;	// uitschakelen
+		GPIOA->ODR = GPIOA->ODR & ~GPIO_ODR_OD7;		// uitschakelen
 
 	if(data & 0x08)
 		GPIOC->ODR = GPIOC->ODR | GPIO_ODR_OD15;		// inschakelen
 	else
-		GPIOC->ODR = GPIOC->ODR & ~GPIO_ODR_OD15;	// uitschakelen
+		GPIOC->ODR = GPIOC->ODR & ~GPIO_ODR_OD15;		// uitschakelen
 }
